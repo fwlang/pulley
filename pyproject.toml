@@ -1,0 +1,23 @@
+[project]
+name = "fw-pulley"
+dynamic = ["version"]
+description = "Pulley, the Flywheel package manager: Distrobase packages through Hydrogen."
+readme = "README.md"
+requires-python = ">=3.12"
+
+[project.optional-dependencies]
+keyring = ["keyring"]
+
+[project.scripts]
+pulley = "pulley.cli:entrypoint"
+ppm = "pulley.cli:entrypoint"
+
+[build-system]
+requires = ["hatchling<1.32"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["pulley"]
+
+[tool.hatch.version]
+path = "pulley/__init__.py"
